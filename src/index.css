@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* iMex AI — design tokens from PDF handoff */
+:root {
+  --ink: #0B1B33;      /* deep ink */
+  --blue: #2563EB;     /* signal blue */
+  --cyan: #22D3EE;     /* scan cyan */
+  --mist: #EEF1F5;     /* mist canvas */
+  --surface: #FFFFFF;  /* surface */
+  --line: #DCE2EA;     /* line */
+  --muted: #5B6B82;    /* muted */
+  --danger: #EF4444;   /* STAT / urgent */
+
+  --font-sans: 'Sora', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --space: 8px; /* 8px grid: 8·16·24·32 */
+  --shadow: 0 1px 3px rgba(11,27,51,.08), 0 14px 40px rgba(11,27,51,.06);
+}
+
+@layer base {
+  *, *::before, *::after {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: var(--mist);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  td, th {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Typography Token Utilities */
+.font-mono-data {
+  font-family: var(--font-mono) !important;
+}
+
+.text-display {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.text-heading {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.text-subhead {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.0;
+}
+
+.text-body-custom {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.text-data-mono {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* PDF Handoff Classes */
+.btn-primary {
+  font: 600 13px/1 var(--font-sans);
+  color: #ffffff;
+  background: var(--blue);
+  padding: 11px 22px;
+  border-radius: var(--r-sm);
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-secondary {
+  font: 600 13px/1 var(--font-sans);
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 11px 22px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.btn-ai {
+  font: 600 13px/1 var(--font-sans);
+  color: #042f2e;
+  background: var(--cyan);
+  border: 0;
+  padding: 11px 22px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.btn-ai:hover {
+  filter: brightness(1.08);
+}
+
+.pill-ai {
+  font: 400 11px/1 var(--font-mono);
+  color: #0891b2;
+  background: rgba(34,211,238,.14);
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pill-ai-solid {
+  font: 700 11px/1 var(--font-mono);
+  color: #042f2e;
+  background: var(--cyan);
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pill-stat {
+  font: 700 11px/1 var(--font-mono);
+  color: var(--danger);
+  background: rgba(239,68,68,.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+}
+
+.viewport {
+  background: #06090f;
+  color: rgba(255,255,255,.6);
+  font: 10px/1 var(--font-mono);
+}
+
+.ai-marker {
+  outline: 2px solid var(--cyan);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(91, 107, 130, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(91, 107, 130, 0.5);
+}
+
+.section-card {
+  background: #ffffff;
+  border-radius: var(--r-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+
+.section-title {
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--blue);
+}
+
+.field-label {
+  display: block;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+}
+
+.field-input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 10px 14px;
+  font-size: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(11, 27, 51, 0.04);
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.field-input:disabled {
+  background: #f1f5f9;
+  color: var(--muted);
+}
